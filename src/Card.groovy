@@ -3,7 +3,7 @@ class Card
     int rank
     Suit suit
 
-    static def ranks = [null, null, "2", "3", "4", "5", "6", "7", "8", "9", "10", "jack", "queen", "king", "ace"]
+    static def ranks = [null, null, "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"]
 
     public static final int JACK  = 11
     public static final int QUEEN = 12
@@ -15,6 +15,19 @@ class Card
      * rank can be 2, 3, ..., 10, JACK, QUEEN, KING, ACE
      * suit can be CLUBS, DIAMONDS, HEARTS, SPADES
      */
+    def int getRank ()
+    {
+        if (rank == JACK || rank == QUEEN || rank == KING)
+        {
+            return 10
+        }
+        if (rank == ACE)
+        {
+            return 11
+        }
+        return rank
+    }
+
     public Card (int rank, Suit suit) 
     {
         if (rank < 2 || rank > ACE)
