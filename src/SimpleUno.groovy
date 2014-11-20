@@ -18,8 +18,8 @@ import Deck
 Deck deck = new Deck()
 
 // Defining each player for printing
-def player1 = "Alain"
-def player2 = "Nuñez"
+def player1 = "Turner"
+def player2 = "iPrep"
 
 def hand1 = []
 def hand2 = []
@@ -27,63 +27,30 @@ def hand2 = []
 int player1GamesWon = 0
 int player2GamesWon = 0
 
-int handSize = 2 // We COULD make this smaller
+int handSize = 7 // We COULD make this smaller
 int numPlayers = 2
 int numGames = 1
-int gameWon = 0
 
 // Play the game numGames times.
-for (int i = 0; i < numGames; i++)
+for (int i = 0; i<numGames; i++)
 {
+    // Reset the deck
     deck.reset()
+    // Shuffle the Deck
     deck.shuffle()
+
+    // Deal the hands (half for each player)
     hand1 = deck.deal(handSize)
     hand2 = deck.deal(handSize)
     def hands = [hand1, hand2]
     def players = [player1, player2]
     
-    int pointP1 = hand1[0].rank + hand1[1].rank
-    int pointP2 = hand2[0].rank + hand2[1].rank
-    println(pointP1 + " " + pointP2)
-    for (int a = 0; i < )
-    if ((pointP1 < 21) && (pointP2 > 21))
-    {
-        gameWon = 1
-    }
-    else if ((pointP1 > 21) && (pointP2 < 21))
-    {
-        gameWon = 2
-    }
-}
- 
+    // print each hand before we play
+    // println(hand1)
+    // println(hand2)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- /*   def drawPile = []
+    // the pile from which we draw when there is no match
+    def drawPile = []
     // the pile that we match cards against and/or discard matching cards for each turn
     def discardPile = []
 
@@ -188,4 +155,4 @@ for (int i = 0; i < numGames; i++)
 
 println ""
 // Announce the winner of the "best-of" series
-println(player1 + ": " + player1GamesWon + " games, " + player2 + ": " + player2GamesWon + " games")*/
+println(player1 + ": " + player1GamesWon + " games, " + player2 + ": " + player2GamesWon + " games")
