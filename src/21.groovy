@@ -5,7 +5,7 @@ import Card
 Deck deck = new Deck()
 
 // Defining each player for printing
-println("\n\n\n\n\n\n\n\n\n\n\n\nWelcome to 21!\n\n\n\n")
+println("\n\n\n\n\n\n\n\n\n\n\n\n----------------------------------------\nWelcome to 21! By: Ronan_77 (Alain Nuñez)\n----------------------------------------\n\n\n\n")
 
 Scanner scan = new Scanner (System.in)
 
@@ -25,8 +25,6 @@ int numGames = scan.nextInt()
 int games = 1
 if (numGames < 1)
     numGames = 1
-println("\n------------------------ Game " + games + "/" + numGames + " ------------------------")
-
 
 for (int i = 0; i < numGames; i++)
 {
@@ -43,12 +41,12 @@ for (int i = 0; i < numGames; i++)
     int player2Play = 1
     int handNum1 = 1
     int handNum2 = 1
+    println("\n------------------------ Game " + games + "/" + numGames + " ------------------------\n")
+
 
     while (player1Play == 1 || player2Play == 1)
     {
-        println(pointP1)
-        println(pointP2)
-        println("\n" + player1 + " has " + pointP1 + " points " + hand1 + "\n" + player2 + " has " + pointP2 + " points " + hand2 + "\n")
+        println("------------------------\n" + player1 + " has " + pointP1 + " points " + hand1 + "\n" + player2 + " has " + pointP2 + " points " + hand2  + "\n------------------------" + "\n")
         if ((pointP1 < 21) && (pointP2 > 21))
         {
             gameWon = 1
@@ -137,16 +135,17 @@ for (int i = 0; i < numGames; i++)
         println("Tie!")
     if (numGames > 1)
     games++
-    println("\n------------------------ Game " + games + "/" + numGames + " ------------------------")
 }
 if (numGames > 1)
 {
+println("\n------------------------ Scores ------------------------\n")
 if (player1GamesWon > player2GamesWon)
-    println(player1 + " has won " + player1GamesWon + " out of " + numGames + " games")
+    println(player1 + " has won " + player1GamesWon + " out of " + numGames + " games!")
 else if (player2GamesWon > player1GamesWon)
-    println(player2 + " has won " + player2GamesWon + " out of " + numGames + " games")
-else if (player2GamesWon > player1GamesWon)
-    println("It's a Tie! " + player1 + " and " + player2 + " have won " + (games/2) + " out of " + numGames)
+    println(player2 + " has won " + player2GamesWon + " out of " + numGames + " games!")
+else if (player2GamesWon == player1GamesWon)
+    println("It's a Tie! " + player1 + " and " + player2 + " have won " + (numGames/2) + " out of " + numGames)
+println("\n------------------------ End ------------------------")
 }
 
 
