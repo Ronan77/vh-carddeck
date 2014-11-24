@@ -5,13 +5,24 @@ import Card
 Deck deck = new Deck()
 
 // Defining each player for printing
-println("\n\n\n\n\n\n\n\n\n\n\n\n----------------------------------------\nWelcome to 21! By: Ronan_77 (Alain Nuñez)\n----------------------------------------\n\n\n\n")
+println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n----------------------------------------\nWelcome to 21! By: Ronan_77 (Alain Nuñez)\n----------------------------------------\n\n\n\n")
 
 Scanner scan = new Scanner (System.in)
+def console = System.console()
 
 //Declare the player names
-def player1 = "Alain"
-def player2 = "John"
+def player1 = "Player1"
+def player2 = "Player2"
+
+println("Would you like to setup names? (1 = Yes, 2 = No)\n")
+int changeNames = scan.nextInt()
+if (changeNames == 1)
+{
+    print("Player1 enter your name: ")
+    player1 = console.readLine()
+    print("\nPlayer2 enter your name: ")
+    player2 = console.readLine()
+}
 
 def hand1 = []
 def hand2 = []
@@ -23,7 +34,7 @@ int handSize = 2
 int numPlayers = 2
 
 //Declare the amount of games to play
-println("- How many games would you like to play?\n")
+println("\n- How many games would you like to play?\n")
 int numGames = scan.nextInt()
 
 //Checks if the amount of games is a positive number, if not set it to (1)
@@ -47,7 +58,6 @@ for (int i = 0; i < numGames; i++)
     int player2Play = 1
     int handNum1 = 1
     int handNum2 = 1
-    int ties = 0
     //Visually sepearates games
     println("\n------------------------ Game " + games + "/" + numGames + " ------------------------\n")
 
@@ -96,7 +106,7 @@ for (int i = 0; i < numGames; i++)
         if (pointP1 < 21 && pointP2 < 21)
         {
             //Asks player1 if they like to hit or stand
-            println("- " + player1 + " would you like to get a new card? (1 = Yes, 2 = No)\n")
+            println("- " + player1 + ", would you like to get a new card? (1 = Yes, 2 = No)\n")
             player1Play = scan.nextInt()
             //Prints if player1 answered Stand
             if (player1Play >= 2)
@@ -113,7 +123,7 @@ for (int i = 0; i < numGames; i++)
                 handNum1++
             }
             //Asks player1 if they like to hit or stand
-            println("- " + player2 + " would you like to get a new card? (1 = Yes, 2 = No)\n")
+            println("- " + player2 + ", would you like to get a new card? (1 = Yes, 2 = No)\n")
             player2Play = scan.nextInt()
             //Prints i2 player2 answer Stand
             if (player2Play >= 2)
@@ -150,7 +160,6 @@ for (int i = 0; i < numGames; i++)
     }
     else if (gameWon == 0)
         println("Tie!")
-        ties++
     if (numGames > 1)
         games++
 }
@@ -160,34 +169,18 @@ if (numGames > 1)
     println("\n------------------------ Scores ------------------------\n")
     if (player1GamesWon > player2GamesWon)
     {
-        if (ties == 0)
-            println(player1 + " has won " + player1GamesWon + " out of " + numGames + " games!")
-        else
-            println(player1 + " has won " + player1GamesWon + " out of " + numGames + " games! With " + ties + " Tie(s)!")
+        println(player1 + " has won " + player1GamesWon + " out of " + numGames + " games!")
     }
     else if (player2GamesWon > player1GamesWon)
     {
-        if (ties == 0)
-            println(player2 + " has won " + player2GamesWon + " out of " + numGames + " games!")
-        else 
-            println(player2 + " has won " + player2GamesWon + " out of " + numGames + " games! With " + ties + " Tie(s)!" )
+        println(player2 + " has won " + player2GamesWon + " out of " + numGames + " games!")
     }
     else if (player2GamesWon == player1GamesWon)
     {
         if (!(numGames/2 > 1))
-        {
-            if (ties == 0)
                 println("It's a Tie! " + player1 + " and " + player2 + " have won " + (numGames/2) + " game each")
-            else
-                println("It's a Tie! " + player1 + " and " + player2 + " have won " + ((numGames-1)/2) + " game each. With " + ties + " Tie!")
-        }
         else
-        {
-            if (ties == 0)
                 println("It's a Tie! " + player1 + " and " + player2 + " have won " + (numGames/2) + " games each")
-            else
-                println("It's a Tie! " + player1 + " and " + player2 + " have won " + (numGames/2) + " games each. With " + ties + " Tie(s)!")
-        }
     }
 }
 println("\n------------------------ End Game ------------------------\n")
