@@ -11,7 +11,7 @@ Scanner scan = new Scanner (System.in)
 
 //Declare the player names
 def player1 = "Alain"
-def player2 = "Tyrell"
+def player2 = "John"
 
 def hand1 = []
 def hand2 = []
@@ -47,6 +47,7 @@ for (int i = 0; i < numGames; i++)
     int player2Play = 1
     int handNum1 = 1
     int handNum2 = 1
+    int ties = 0
     //Visually sepearates games
     println("\n------------------------ Game " + games + "/" + numGames + " ------------------------\n")
 
@@ -149,6 +150,7 @@ for (int i = 0; i < numGames; i++)
     }
     else if (gameWon == 0)
         println("Tie!")
+        ties++
     if (numGames > 1)
         games++
 }
@@ -157,18 +159,38 @@ if (numGames > 1)
 {
     println("\n------------------------ Scores ------------------------\n")
     if (player1GamesWon > player2GamesWon)
-        println(player1 + " has won " + player1GamesWon + " out of " + numGames + " games!")
+    {
+        if (ties == 0)
+            println(player1 + " has won " + player1GamesWon + " out of " + numGames + " games!")
+        else
+            println(player1 + " has won " + player1GamesWon + " out of " + numGames + " games! With " + ties + " Tie(s)!")
+    }
     else if (player2GamesWon > player1GamesWon)
-        println(player2 + " has won " + player2GamesWon + " out of " + numGames + " games!")
+    {
+        if (ties == 0)
+            println(player2 + " has won " + player2GamesWon + " out of " + numGames + " games!")
+        else 
+            println(player2 + " has won " + player2GamesWon + " out of " + numGames + " games! With " + ties + " Tie(s)!" )
+    }
     else if (player2GamesWon == player1GamesWon)
     {
         if (!(numGames/2 > 1))
-            println("It's a Tie! " + player1 + " and " + player2 + " have won " + (numGames/2) + " game each")
+        {
+            if (ties == 0)
+                println("It's a Tie! " + player1 + " and " + player2 + " have won " + (numGames/2) + " game each")
+            else
+                println("It's a Tie! " + player1 + " and " + player2 + " have won " + ((numGames-1)/2) + " game each. With " + ties + " Tie!")
+        }
         else
-            println("It's a Tie! " + player1 + " and " + player2 + " have won " + (numGames/2) + " games each")
+        {
+            if (ties == 0)
+                println("It's a Tie! " + player1 + " and " + player2 + " have won " + (numGames/2) + " games each")
+            else
+                println("It's a Tie! " + player1 + " and " + player2 + " have won " + (numGames/2) + " games each. With " + ties + " Tie(s)!")
+        }
     }
 }
-println("\n------------------------ End ------------------------\n")
+println("\n------------------------ End Game ------------------------\n")
 
 
 
