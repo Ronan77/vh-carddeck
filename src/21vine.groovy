@@ -5,7 +5,7 @@ import Card
 Deck deck = new Deck()
 
 // Defining each player for printing
-println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n----------------------------------------\nWelcome to 21! By: Ronan_77 (Alain Nuñez)\n----------------------------------------\n\n\n\n")
+println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n----------------------------------------\nWelcome to 21! By: Ronan_77 (Alain Nuñez)\n-- Vine Mode\n----------------------------------------\n\n\n\n")
 
 Scanner scan = new Scanner (System.in)
 def console = System.console()
@@ -13,6 +13,8 @@ def console = System.console()
 //Declare the player names
 def player1 = "Player1"
 def player2 = "Player2"
+
+println("You are in Vine Mode! Who ever has 19 will be given 21 points!\n")
 
 println("Would you like to setup names? (1 = Yes, 2 = No)\n")
 int changeNames = scan.nextInt()
@@ -64,6 +66,10 @@ for (int i = 0; i < numGames; i++)
     while (player1Play == 1 || player2Play == 1)
     {
         //Shows current scores
+        if (pointP1 == 19)
+            pointP1 = 21
+        if (pointP2 == 19)
+            pointP2 = 21
         println("------------------------------------------------\n" + player1 + " has " + pointP1 + " points " + hand1 + "\n" + player2 + " has " + pointP2 + " points " + hand2  + "\n------------------------------------------------" + "\n")
         //Game logic
         if ((pointP1 < 21) && (pointP2 > 21))

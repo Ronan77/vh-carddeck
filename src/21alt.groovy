@@ -53,7 +53,7 @@ for (int i = 0; i < numGames; i++)
     while (player1Play == 1 || player2Play == 1)
     {
         //Shows Current Scores
-        for (int a = 0; a < 1 + handNum1; a++)
+        /*for (int a = 0; a < 1 + handNum1; a++)
         {
             if (hand1[a].rank == 11 && (pointP1 > 21))
             {
@@ -68,7 +68,7 @@ for (int i = 0; i < numGames; i++)
                 hand2[a].rank = 1
                 pointP2 -= 10
             }
-        }
+        }*/
         println("------------------------------------------------\n" + player1 + " has " + pointP1 + " points " + hand1 + "\n" + player2 + " has " + pointP2 + " points " + hand2  + "\n------------------------------------------------" + "\n")
         //Game Logic (Probably a bunch in unnesesary)
         if ((pointP1 < 21) && (pointP2 > 21))
