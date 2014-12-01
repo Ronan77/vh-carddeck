@@ -5,7 +5,7 @@ import Card
 Deck deck = new Deck()
 
 // Defining each player for printing
-println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n----------------------------------------\nWelcome to 21! By: Ronan_77 (Alain Nuñez)\n----------------------------------------\n\n\n\n")
+println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n----------------------------------------\nWelcome to 21! By: Ronan_77 (Alain Nuñez)\nVersion 2.1\n----------------------------------------\n\n\n\n")
 
 Scanner scan = new Scanner (System.in)
 def console = System.console()
